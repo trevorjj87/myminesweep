@@ -1,0 +1,57 @@
+package myminesweep;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class Myminesweep implements ActionListener {
+  Myminesweep() {
+    JFrame f = new JFrame("Menu Demo");
+    f.setSize(800, 800);
+
+    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    JMenuBar jmb = new JMenuBar();
+
+    JMenu jmFile = new JMenu("Menu");
+    JMenuItem a = new JMenuItem("Play Level 1");
+    JMenuItem b = new JMenuItem("Play level 2");
+    JMenuItem c = new JMenuItem("Play level 3");
+    JMenuItem jmiClose = new JMenuItem("Close");
+    JMenuItem jmiSave = new JMenuItem("Save");
+    JMenuItem jmiExit = new JMenuItem("Exit");
+    jmFile.add(a);
+    jmFile.add(b);
+    jmFile.add(c);
+    jmFile.add(jmiClose);
+    jmFile.add(jmiSave);
+    jmFile.addSeparator();
+    jmFile.add(jmiExit);
+    jmb.add(jmFile);
+
+    
+
+
+    a.addActionListener(this);
+    jmiClose.addActionListener(this);
+    jmiSave.addActionListener(this);
+    jmiExit.addActionListener(this);
+    b.addActionListener(this);
+    c.addActionListener(this);
+
+
+
+    f.setJMenuBar(jmb);
+    f.setVisible(true);
+  }
+  public void actionPerformed(ActionEvent ae) {
+    String comStr = ae.getActionCommand();
+    System.out.println(comStr + " Selected");
+  }
+  public static void main(String args[]) {
+    new Myminesweep();
+  }
+}
